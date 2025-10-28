@@ -1,10 +1,12 @@
 use time::format_description::well_known::Rfc3339;
 
-use crate::{LightSettings, NotificationPriority, Visibility};
+use crate::{
+    NotificationPriority,
+    Visibility,
+    LightSettings,
+};
 
-/// Represents the settings for a notification in Android.
-/// All settings are optional, and all settings (setter functions) follow the scheme below.
-/// See <https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidnotification>.
+
 #[derive(serde::Serialize, Debug, Default, Clone)]
 pub struct AndroidNotification {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -64,68 +66,68 @@ impl AndroidNotification {
         Default::default()
     }
 
-    pub fn title(&mut self, title: impl Into<String>) -> &mut Self {
-        self.title = Some(title.into());
+    pub fn title(&mut self, title: String) -> &mut Self {
+        self.title = Some(title);
         self
     }
 
-    pub fn body(&mut self, body: impl Into<String>) -> &mut Self {
-        self.body = Some(body.into());
+    pub fn body(&mut self, body: String) -> &mut Self {
+        self.body = Some(body);
         self
     }
 
-    pub fn icon(&mut self, icon: impl Into<String>) -> &mut Self {
-        self.icon = Some(icon.into());
+    pub fn icon(&mut self, icon: String) -> &mut Self {
+        self.icon = Some(icon);
         self
     }
 
-    pub fn color(&mut self, color: impl Into<String>) -> &mut Self {
-        self.color = Some(color.into());
+    pub fn color(&mut self, color: String) -> &mut Self {
+        self.color = Some(color);
         self
     }
 
-    pub fn sound(&mut self, sound: impl Into<String>) -> &mut Self {
-        self.sound = Some(sound.into());
+    pub fn sound(&mut self, sound: String) -> &mut Self {
+        self.sound = Some(sound);
         self
     }
 
-    pub fn tag(&mut self, tag: impl Into<String>) -> &mut Self {
-        self.tag = Some(tag.into());
+    pub fn tag(&mut self, tag: String) -> &mut Self {
+        self.tag = Some(tag);
         self
     }
 
-    pub fn click_action(&mut self, click_action: impl Into<String>) -> &mut Self {
-        self.click_action = Some(click_action.into());
+    pub fn click_action(&mut self, click_action: String) -> &mut Self {
+        self.click_action = Some(click_action);
         self
     }
 
-    pub fn body_loc_key(&mut self, body_loc_key: impl Into<String>) -> &mut Self {
-        self.body_loc_key = Some(body_loc_key.into());
+    pub fn body_loc_key(&mut self, body_loc_key: String) -> &mut Self {
+        self.body_loc_key = Some(body_loc_key);
         self
     }
 
-    pub fn body_loc_args(&mut self, body_loc_args: Vec<impl Into<String>>) -> &mut Self {
-        self.body_loc_args = Some(body_loc_args.into_iter().map(|s| s.into()).collect());
+    pub fn body_loc_args(&mut self, body_loc_args: Vec<String>) -> &mut Self {
+        self.body_loc_args = Some(body_loc_args);
         self
     }
 
-    pub fn title_loc_key(&mut self, title_loc_key: impl Into<String>) -> &mut Self {
-        self.title_loc_key = Some(title_loc_key.into());
+    pub fn title_loc_key(&mut self, title_loc_key: String) -> &mut Self {
+        self.title_loc_key = Some(title_loc_key);
         self
     }
 
-    pub fn title_loc_args(&mut self, title_loc_args: Vec<impl Into<String>>) -> &mut Self {
-        self.title_loc_args = Some(title_loc_args.into_iter().map(|s| s.into()).collect());
+    pub fn title_loc_args(&mut self, title_loc_args: Vec<String>) -> &mut Self {
+        self.title_loc_args = Some(title_loc_args);
         self
     }
 
-    pub fn channel_id(&mut self, channel_id: impl Into<String>) -> &mut Self {
-        self.channel_id = Some(channel_id.into());
+    pub fn channel_id(&mut self, channel_id: String) -> &mut Self {
+        self.channel_id = Some(channel_id);
         self
     }
 
-    pub fn ticker(&mut self, ticker: impl Into<String>) -> &mut Self {
-        self.ticker = Some(ticker.into());
+    pub fn ticker(&mut self, ticker: String) -> &mut Self {
+        self.ticker = Some(ticker);
         self
     }
 
@@ -144,10 +146,7 @@ impl AndroidNotification {
         self
     }
 
-    pub fn notification_priority(
-        &mut self,
-        notification_priority: NotificationPriority,
-    ) -> &mut Self {
+    pub fn notification_priority(&mut self, notification_priority: NotificationPriority) -> &mut Self {
         self.notification_priority = Some(notification_priority);
         self
     }
@@ -167,8 +166,8 @@ impl AndroidNotification {
         self
     }
 
-    pub fn vibrate_timings(&mut self, vibrate_timings: Vec<impl Into<String>>) -> &mut Self {
-        self.vibrate_timings = Some(vibrate_timings.into_iter().map(|s| s.into()).collect());
+    pub fn vibrate_timings(&mut self, vibrate_timings: Vec<String>) -> &mut Self {
+        self.vibrate_timings = Some(vibrate_timings);
         self
     }
 
@@ -187,8 +186,8 @@ impl AndroidNotification {
         self
     }
 
-    pub fn image(&mut self, image: impl Into<String>) -> &mut Self {
-        self.image = Some(image.into());
+    pub fn image(&mut self, image: String) -> &mut Self {
+        self.image = Some(image);
         self
     }
 }
